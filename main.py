@@ -34,11 +34,10 @@ if ('HOME' in os.environ) and (os.environ['HOME'] == '/home/runner'):
 import atlastk
 from tortoise import *
 
-
 HTML = """
 <div style="display: table; margin: auto;">
- <svg id="SVG" width="300" height="300">
-  <text x="30" y="30">Click on a button below!</text>
+ <svg id="SVG" viewbox="-150 -150 300 300">
+  <text x="-100" y="-100">Click on a button below!</text>
  </svg>
  <div id="buttons" style="display: table; margin: 10px auto auto auto;">
   <button id="All" data-xdh-onevent="All">All</button>
@@ -62,6 +61,8 @@ HEAD = """
   display: table;
   margin: auto;
   text-align: center;
+  width: 300px;
+  height: 300px;
  }
 </style>
 """
@@ -140,38 +141,32 @@ def drawing4(tortoise):
         tortoise.left(59)
 
 
-def clear(dom):
-    dom.setLayout("SVG", atlastk.createHTML())
-    tortoise = Tortoise(dom)
-    tortoise.setAutoDraw(autoDraw)
-    return tortoise
-
-
-def call(dom, id):
-    tortoise = clear(dom)
+def call(tortoise, dom, id):
     dom.disableElements(ids)
+    tortoise.setAutoDraw(autoDraw)
+    tortoise.clear()
     globals()["drawing" + str(id)](tortoise)
     tortoise.draw()
 
 
-def acConnect(dom):
+def acConnect(tortoise,dom):
     dom.setLayout("", HTML)
     dom.enableElements(ids)
 
 
-def acAll(dom, id):
-    call(dom, 0)
-    call(dom, 1)
-    call(dom, 2)
-    call(dom, 3)
-    call(dom, 4)
+def acAll(tortoise,dom, id):
+    call(tortoise,dom, 0)
+    call(tortoise,dom, 1)
+    call(tortoise,dom, 2)
+    call(tortoise,dom, 3)
+    call(tortoise, dom, 4)
     dom.enableElements(ids)
     globals()["autoDraw"] = 50
 
 
-def acDraw(dom, id):
-    call(dom, id)
+def acDraw(tortoise, dom, id):
+    call(tortoise,dom, id)
     dom.enableElements(ids)
 
 
-atlastk.launch({"": acConnect, "All": acAll, "Draw": acDraw}, None, HEAD)
+atlastk.launch({"": acConnect, "All": acAll, "Draw": acDraw}, lambda dom: Tortoise(dom, "SVG"), HEAD)
