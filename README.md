@@ -15,7 +15,7 @@ Cloning the repository (or retrieving the corresponding ZIP file) is sufficient 
 
 The module is also available on *Pypi*: <https://pypi.org/project/tortoise/>. Simply launch `pip install tortoise` to install it.
 
-Alternatively, you can also use [*Repl.it*](https://q37.info/s/srnnb7hj), so you have nothing to install on your computer. Follow this [link](https://q37.info/s/p3cvfxdx), click on the green `run` button, and then click on (or scan) the then displayed [QR code](https://q37.info/s/3pktvrj7).
+Alternatively, you can also use [*Repl.it*](https://q37.info/s/mxmgq3qm), so you have nothing to install on your computer. Follow this [link](https://q37.info/s/p3cvfxdx), click on the green `run` button, and then click on (or scan) the then displayed [QR code](https://q37.info/s/3pktvrj7).
 
 This *Python* module is part of a [larger project](https://q37.info/s/tpkx4cfk) that aims to provide a way to write modern examples or exercises for programming tutorials.
 
