@@ -24,8 +24,7 @@ SOFTWARE.
 """
 
 import os, sys
-sys.path.append("./Atlas.zip")
-sys.path.append("./tortoise")
+__import__("sys").path.extend(["./atlastk.zip", "./tortoise"])
 
 import atlastk
 from tortoise import *
