@@ -60,7 +60,7 @@ HEAD = """
 </style>
 """
 
-autoDraw = 20
+autoDraw = 40
 ids = ["All", "0", "1", "2", "3", "4"]
 
 
